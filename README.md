@@ -3,8 +3,8 @@ Projeto feito para a matéria de Desenvolvimento Web I administrada pelo profess
 
 O projeto se baseia na ideia de um jogo web de blackjack ou tambem conhecido como 21 medieval 
 
-
-#Objetivo: Chegar o mais próximo de 21 pontos sem ultrapassar e abaixar a vida do inimigo a 0
+Objetivo:
+Chegar o mais próximo de 21 pontos sem ultrapassar e abaixar a vida do inimigo a 0
             
 Regras Básicas:
 Cartas de 2 a 10 valem seus respectivos valores, J, Q, K valem 10, e Ás pode valer 1 ou 11.
