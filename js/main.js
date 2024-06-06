@@ -2,12 +2,32 @@
 let deck_info = {}
 let player_hand = []
 let computer_hand = []
+let computer_blackJack
+let player_blackJack
+
+const openModal = (idModal) => {
+	const modal = document.getElementById(idModal)
+	modal.style.display = 'flex'
+}
+
+const closeModal = (event, id) => {
+	if(id){
+		const modal = document.getElementById(id)
+		modal.style.display = 'none'
+		return
+	}
+
+	if(event?.target?.className === "modal"){
+		const modal = document.getElementById(event.target.id)
+		modal.style.display = 'none'
+		return
+	}
+}
 
 async function addDeck() {
     try {
         const response = await fetch("https://www.deckofcardsapi.com/api/deck/new/shuffle/?deck_count=6")
         const result = await response.json()
-        console.log(result)
         if (!response.ok) {
             throw new Error("Erro ao buscar dados")
         }
@@ -54,10 +74,10 @@ async function gameStart() {
     }
     //calcula o total das cartas utilizando a função calcularTotal
     let numtotal = calcularTotal(player_hand)
-    if (numtotal >= 21) {
-        const button = document.getElementById(idButton)
-        console.log(`atingiu ou passou 21: ${numtotal}`)
-        return
+    if(numtotal == 21){
+        console.log("blackJack " + numtotal)
+        player_blackJack = true
+        computerPlay()
     }
     console.log(numtotal)
 }
@@ -77,15 +97,22 @@ async function moreCard(idButton) {
 
         //calcula o total das cartas utilizando a função calcularTotal
         let numtotal = calcularTotal(player_hand)
-        if (numtotal >= 21) {
+        if(numtotal == 21){
+            console.log("blackjack do jogador ")
+        }
+        if (numtotal > 21) {
             const button = document.getElementById(idButton)
-            console.log(`atingiu ou passou 21: ${numtotal}`)
+            console.log(`passou 21: ${numtotal}`)
             computerPlay()
             return
         }
         console.log(numtotal)
 
     }
+}
+
+function stopCard(){
+    computerPlay()
 }
 
 function calcularTotal(hand) {
@@ -118,26 +145,73 @@ function calcularTotal(hand) {
     return total
 }
 
-async function computerDraw(){
-    const data = await drawCard(2)
+async function computerInitialDraw(){
+    const data = await drawCard(2);
     if (data) {
         computer_hand = data.map(card => ({
             valor: card.value,
             naipe: card.suit,
             image: card.image
-        }))
-        console.log(computer_hand)
+        }));
     }
-    //calcula o total das cartas utilizando a função calcularTotal
-    let numtotal = calcularTotal(computer_hand)
-    if (numtotal >= 21) {
-        console.log(`atingiu ou passou 21: ${numtotal}`)
-        return
+
+    const total = calcularTotal(computer_hand);
+    if (total == 21) {
+        console.log(`Atingiu 21: ${total}`);
+        computer_blackJack = true;
     }
-    console.log(numtotal)
+
+}
+
+async function computerDraw(){
+    const data = await drawCard(1);
+    if (data) {
+        data.forEach(card => {
+            computer_hand.push({
+                valor: card.value,
+                naipe: card.suit,
+                image: card.image
+            });
+        });
+    }
+
 }
 
 async function computerPlay(){
-    computerDraw()
-    if(calcularTotal(computer_hand) < 17)
+    await computerInitialDraw();
+    console.log("Mão do computador:", computer_hand);
+
+    await delay(1000);
+
+    while (calcularTotal(computer_hand) < 17) {
+        await computerDraw();
+        console.log("Mão do computador:", calcularTotal(computer_hand));
+        await delay(500);
+    }
+    console.log(winner())
+}
+
+function winner(){
+    let player = calcularTotal(player_hand)
+    let computer = calcularTotal(computer_hand)
+
+    if (player > 21 && computer > 21) {
+        return "Nenhum jogador ganha, ambos estouraram";
+    } else if (player > 21) {
+        return "Computador ganha, jogador estourou";
+    } else if (computer > 21) {
+        return "Jogador ganha, computador estourou";
+    } else if (player === computer) {
+        return "Empate";
+    } else if (player > computer) {
+        return "Jogador ganha";
+    } else {
+        return "Computador ganha";
+    }
+
+}
+
+// Função delay que retorna uma Promise que resolve após o tempo especificado
+function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }

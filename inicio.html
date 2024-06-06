@@ -1,23 +1,77 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="widht=device-width", initial0scale="1.0">
-    <title>Vinte-e-Um</title>
-    <link rel="style" href=".css/style.css">
+    <meta name="viewport" content="widht=device-width" , initial0scale="1.0">
+    <title>Medieval BlackJack</title>
+    <link rel="stylesheet" href="css/MenuStyle.css">
     <script src="js/main.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jacquard+12&family=Jacquard+24&display=swap" rel="stylesheet">
 </head>
-<body>
-    <header>
-        
-    </header>
-    <main>
-        <button onclick="gameStart()">Iniciar jogo</button>
-        <button onclick="moreCard()">Comprar outra carta</button>
 
-    </main>
-    <footer>
-        <p>Copyright 2024 © João Vitor de Paula Oliveira ("Jonny")</p>
-    </footer>
+<body>
+    <div id="background">
+        <div id="title">
+            <h1>Medieval BlackJack</h1>
+        </div>
+        <div id="content">
+            <div id="img1">
+                img1
+            </div>
+            <div class="menu">
+                <button onclick="goToPage('jogo.html')">
+                    Jogar
+                </button>
+                <button onclick="openModal('Tutorial')">
+                    Tutorial
+                </button>
+            </div>
+            <div id="img2">
+                img2
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <script>
+        function goToPage(url) {
+            window.location.href = url;
+        }
+    </script>
+
 </body>
+<footer>
+
+</footer>
+<div id="Tutorial" class="modal" onclick="closeModal(event)">
+    <main>
+            <h2>Tutorial</h2>
+            <h4>Objetivo: Chegar o mais próximo de 21 pontos sem ultrapassar 
+            e abaixar a vida do inimigo a 0</h4>
+            
+            <h4>Regras Básicas:</h4>
+            <h7>Cartas de 2 a 10 valem seus respectivos valores, J, Q, K valem 10, e Ás pode valer 1 ou 11.
+            O jogador e o dealer recebem duas cartas; uma do dealer fica oculta.</h7>
+            
+            <h4>Mecânica de Dano:</h4>
+            <h7>Antes de cada rodada, escolha um dado, sendo as esocolhas: d4, d6, d10 e d12.
+            Esse valor será o dano causado ao dealer ou recebido, dependendo do resultado.</h7>
+            
+            <h4>Ações do Jogador:</h4>
+            <h7>Hit (Pedir Carta): Pegue uma carta extra.</h7>
+            <h7>Stand (Parar): Mantenha suas cartas.</h7>
+            
+            <h4>Resultado do jogo</h4>
+            <h7>O jogador vencer, causa o dano escolhido ao dealer.
+            Se perder, toma o dano escolhido.
+            Se empatar (push), nenhum dano é aplicado.</h7>
+            <h4>Boa sorte!</h4>
+    </main>
+</div>
+
 </html>
