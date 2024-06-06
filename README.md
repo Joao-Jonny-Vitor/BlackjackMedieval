@@ -18,7 +18,7 @@ Ações do Jogador:
 Hit (Pedir Carta): Pegue uma carta extra.
 Stand (Parar): Mantenha suas cartas.
             
-Resultado do jogo
+Resultado do jogo:
 O jogador vencer, causa o dano escolhido ao dealer.
 Se perder, toma o dano escolhido.
 Se empatar (push), nenhum dano é aplicado.
