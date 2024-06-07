@@ -15,24 +15,16 @@
 <body>
     <div id="background">
         <div id="title">
-            <h1>Medieval BlackJack</h1>
+            <h6>Medieval</h6> 
+            <h6>BlackJack</h6>
         </div>
-        <div id="content">
-            <div id="img1">
-                img1
-            </div>
-            <div class="menu">
-                <button onclick="goToPage('jogo.html')">
-                    Jogar
-                </button>
-                <button onclick="openModal('Tutorial')">
-                    Tutorial
-                </button>
-            </div>
-            <div id="img2">
-                img2
-            </div>
+
+        <div class="menu">
+            <button onclick="goToPage('jogo.html')">Jogar</button>
+            <button onclick="openModal('Tutorial')">Tutorial</button>
+            <button onclick="openModal('creditos')">Creditos</button>
         </div>
+
 
 
 
@@ -50,28 +42,39 @@
 </footer>
 <div id="Tutorial" class="modal" onclick="closeModal(event)">
     <main>
-            <h2>Tutorial</h2>
-            <h4>Objetivo: Chegar o mais próximo de 21 pontos sem ultrapassar 
+        <h2>Tutorial</h2>
+        <h4>Objetivo: Chegar o mais próximo de 21 pontos sem ultrapassar
             e abaixar a vida do inimigo a 0</h4>
-            
-            <h4>Regras Básicas:</h4>
-            <h7>Cartas de 2 a 10 valem seus respectivos valores, J, Q, K valem 10, e Ás pode valer 1 ou 11.
+
+        <h4>Regras Básicas:</h4>
+        <h7>Cartas de 2 a 10 valem seus respectivos valores, J, Q, K valem 10, e Ás pode valer 1 ou 11.
             O jogador e o dealer recebem duas cartas; uma do dealer fica oculta.</h7>
-            
-            <h4>Mecânica de Dano:</h4>
-            <h7>Antes de cada rodada, escolha um dado, sendo as esocolhas: d4, d6, d10 e d12.
+
+        <h4>Mecânica de Dano:</h4>
+        <h7>Antes de cada rodada, escolha um dado, sendo as esocolhas: d4, d6, d10 e d12.
             Esse valor será o dano causado ao dealer ou recebido, dependendo do resultado.</h7>
-            
-            <h4>Ações do Jogador:</h4>
-            <h7>Hit (Pedir Carta): Pegue uma carta extra.</h7>
-            <h7>Stand (Parar): Mantenha suas cartas.</h7>
-            
-            <h4>Resultado do jogo</h4>
-            <h7>O jogador vencer, causa o dano escolhido ao dealer.
+
+        <h4>Ações do Jogador:</h4>
+        <h7>Hit (Pedir Carta): Pegue uma carta extra.</h7>
+        <h7>Stand (Parar): Mantenha suas cartas.</h7>
+
+        <h4>Resultado do jogo</h4>
+        <h7>O jogador vencer, causa o dano escolhido ao dealer.
             Se perder, toma o dano escolhido.
             Se empatar (push), nenhum dano é aplicado.</h7>
-            <h4>Boa sorte!</h4>
+        <h4>Boa sorte!</h4>
     </main>
+</div>
+<div id="creditos" class="modal" onclick="closeModal(event)">
+    <main>
+        <h2>Creditos</h2>
+        <h4>Feito por João Vitor de Paula Oliveira </h4>
+        <h4>Aluno do IFSP-caraguatatuba, codigo do aluno: CG3023168</h4>
+        <h4>Projeto feito para a matéria de Desenvolvimento Web I administrada pelo professor Renan Cavichi. </h4>
+
+    </main>
+</div>
+
 </div>
 
 </html>
