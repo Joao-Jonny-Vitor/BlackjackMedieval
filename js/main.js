@@ -82,7 +82,7 @@ async function gameStart() {
     console.log(numtotal)
 }
 
-async function moreCard(idButton) {
+async function moreCard() {
     //requisita a API para comprar uma carta
     const data = await drawCard(1)
     if (data) {
@@ -98,7 +98,8 @@ async function moreCard(idButton) {
         //calcula o total das cartas utilizando a função calcularTotal
         let numtotal = calcularTotal(player_hand)
         if(numtotal == 21){
-            console.log("blackjack do jogador ")
+            console.log("Atingiu 21")
+            player_blackJack = true;
         }
         if (numtotal > 21) {
             const button = document.getElementById(idButton)
@@ -133,8 +134,7 @@ function calcularTotal(hand) {
         }
         total += num
     })
-
-    //calculo da propriedade dos ÁS que pode assumir valor 1 ou 11
+    //calculo dos ÁS's que pode assumir valor 1 ou 11
     for (let i = 0; i < aces; i++) {
         if ((total + 11) <= 21) {
             total += 11
@@ -160,7 +160,6 @@ async function computerInitialDraw(){
         console.log(`Atingiu 21: ${total}`);
         computer_blackJack = true;
     }
-
 }
 
 async function computerDraw(){
@@ -174,7 +173,6 @@ async function computerDraw(){
             });
         });
     }
-
 }
 
 async function computerPlay(){
@@ -209,6 +207,15 @@ function winner(){
         return "Computador ganha";
     }
 
+}
+
+function deleteCards(){
+    deck_info = {}
+    player_hand = []
+}
+
+function rolldice(dice){
+    Math. floor(Math. random() * (dice - 1 + 1)) + 1
 }
 
 // Função delay que retorna uma Promise que resolve após o tempo especificado
