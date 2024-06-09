@@ -4,6 +4,8 @@ let player_hand = []
 let computer_hand = []
 let computer_blackJack
 let player_blackJack
+let player_life
+let enemy_life
 
 const openModal = (idModal) => {
 	const modal = document.getElementById(idModal)
