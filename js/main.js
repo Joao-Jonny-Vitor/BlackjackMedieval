@@ -4,8 +4,8 @@ let player_hand = []
 let computer_hand = []
 let computer_blackJack
 let player_blackJack
-let player_life
-let enemy_life
+let player_life = 100;
+let enemy_life = 100;
 
 const openModal = (idModal) => {
 	const modal = document.getElementById(idModal)
@@ -144,6 +144,10 @@ function calcularTotal(hand) {
             total += 1
         }
     }
+
+    if(hand === "player_hand"){
+        document.getElementById('totalValue').textContent = total;
+    }
     return total
 }
 
@@ -218,6 +222,36 @@ function deleteCards(){
 
 function rolldice(dice){
     Math. floor(Math. random() * (dice - 1 + 1)) + 1
+}
+
+function decreaseLife(character, qtd) {
+    if (character === 'player') {
+        player_life -= qtd;
+        if (player_life < 0) {
+            player_life = 0;
+        }
+    } else if (character === 'enemy') {
+        enemy_life -= qtd;
+        if (enemy_life < 0) {
+            enemy_life = 0;
+        }
+    }
+    updateLifeBar(character);
+}
+
+function updateLifeBar(character) {
+    let lifeBarInner;
+    let currentLife;
+
+    if (character === 'player') {
+        lifeBarInner = document.getElementById('bar_user_pt');
+        currentLife = player_life;
+    } else if (character === 'enemy') {
+        lifeBarInner = document.getElementById('bar_enemy_pt');
+        currentLife = enemy_life;
+    }
+    console.log("iniciou updateLifebar")
+    lifeBarInner.style.width = currentLife + '%';
 }
 
 // Função delay que retorna uma Promise que resolve após o tempo especificado

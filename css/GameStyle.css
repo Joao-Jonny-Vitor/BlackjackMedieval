@@ -81,22 +81,14 @@ div#side_bars{
     gap: 20px;
 }
 
-div#side_bars > div#bar_enemy{
+div.bar{
     display: flex;
     height: 20%;
     width: 70%;
     border-radius: 30px;
     overflow: hidden;
     border: 5px solid #000;
-    
-}
-div#side_bars > div#bar_user{
-    display: flex;
-    height: 20%;
-    width: 70%;
-    border-radius: 30px;
-    overflow: hidden;
-    border: 5px solid #000;
+    background-color:#642d00;
 }
 
 div#side_bars > div#soma{
