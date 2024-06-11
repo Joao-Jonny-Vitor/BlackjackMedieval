@@ -227,7 +227,7 @@ async function computerPlay() {
     //laço de repetição para que o computador pare de comprar cartas apenas quando se tiver 18 ou mais
     while (calcularTotal(computer_hand) <= 17) {
         await computerDraw();
-        await delay(500);
+        await delay(800);
     }
 
     //verifica se o computador conseguiu um acerto critico
