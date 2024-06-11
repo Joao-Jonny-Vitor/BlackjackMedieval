@@ -93,7 +93,6 @@ async function gameStart() {
             naipe: card.suit,
             image: card.image
         }))
-        console.log(player_hand)
     }
     //compra a carta inicial do computador
     await computerInitialDraw();
@@ -133,7 +132,6 @@ async function moreCard() {
         //verifica se o player atingiu o valor 21 para que seja registrado o acerto critico
         //e tambem para desativar os botões de pedir cartas e para que o computador jogue
         if (numtotal == 21) {
-            console.log("Atingiu 21")
             player_blackJack = true;
             document.getElementById('side_options').style.visibility = 'hidden';
             computerPlay()
@@ -141,7 +139,6 @@ async function moreCard() {
 
         //verifica se o plater passou de 21 para que o computador jogue
         if (numtotal > 21) {
-            console.log(`passou 21: ${numtotal}`)
             document.getElementById('side_options').style.visibility = 'hidden';
             computerPlay()
             return
@@ -347,7 +344,6 @@ function deleteBlackjacks(){
 //função que seta o dado de dano selecionado
 async function chosedice(valor) {
     dice = valor;
-    console.log(dice)
     await delay(200)
     gameStart()
 }
