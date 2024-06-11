@@ -14,31 +14,96 @@
 
 <body>
     <header class="game">
-
+        <div id="computer_cards" class="cards"></div>
     </header>
     <div id="gameobjects">
         <div id="side_bars">
             <div class="bar">
-                <div id="bar_enemy_pt"></div>
+                <div id="bar_enemy_pt">
+                    <h1 id="valueEnemy">100</h1>
+                </div>
             </div>
-            <div id="soma">
-                <h2>Seu total</h2>
-                <h1 id="totalValue">x</h1>
+            <div id="placares">
+                <div id="somaPlayer">
+                    <h2>Seu total</h2>
+                    <h1 id="totalValuePlayer">0</h1>
+                </div>
+                <div id="somaComputador">
+                    <h2>Enemy total</h2>
+                    <h1 id="totalValueEnemy">0</h1>
+                </div>
             </div>
+
             <div class="bar">
-                <div id="bar_user_pt"></div>
+                <div id="bar_user_pt">
+                    <h1 id="valueUser">100</h1>
+                </div>
             </div>
         </div>
         <div id="middle_cards">
+            <div id="resultadoRodada">
 
+            </div>
         </div>
         <div id="side_options">
-            <button onclick='decreaseLife("enemy", 10)'>Comprar</button>
-            <button onclick='gameStart()'>Parar</button>
+            <button onclick='moreCard()'>Comprar</button>
+            <button onclick='stopCard()'>Parar</button>
         </div>
     </div>
     <footer class="game">
-
+        <div id="player_cards" class="cards"></div>
     </footer>
+
+    <div id="dados" class="modal">
+        <main>
+            <h1>Escolha o dado de dano a se apostar</h1>
+            <h2>Lembre que este dado será o dano causado na rodada,</h2>
+            <h2>ou seja, ele pode ser causado a você tambem</h2>
+            <div class="dice">
+                <div class="dice" id="d6">
+                    <h2>Dado de 6 lados</h2>
+                    <button class="dice-image" id="dice-image-d6"
+                        onclick="chosedice(6);closeModal(event, 'dados')"></button>
+                </div>
+                <div class="dice" id="d12">
+                    <h2>Dado de 12 lados</h2>
+                    <button class="dice-image" id="dice-image-d12"
+                        onclick="chosedice(12);closeModal(event, 'dados')"></button>
+                </div>
+                <div class="dice" id="d20">
+                    <h2>Dado de 20 lados</h2>
+                    <button class="dice-image" id="dice-image-d20"
+                        onclick="chosedice(20); closeModal(event, 'dados')"></button>
+                </div>
+            </div>
+
+        </main>
+    </div>
+    <div id="mostrarResultado" class="modal" onclick="closeModal(event)">
+        <main>
+            <h1>vencedor da Rodada: <span id="vencedor"></span></h1>
+            <h1>Dano do Dado: <span id="danoRodado"></span></h1>
+        </main>
+    </div>
+
+    <div id="fimdeJogo" class="modal">
+        <main>
+            <div>
+                <h1>O jogo Terminou!, você será lembrado nesta taverna</h1>
+                <h2>Ainda há muita cerveja e muitos querem jogar contra você,</h2>
+                <h2>Gostaria de jogar novamente ou voltar ao menu?</h2>
+            </div>
+            <div id="orgbutton">
+                <button class="fimdeJogobutton" onclick="playAgain(), closeModal(event, 'fimdeJogo')">Jogar novamente</button>
+                <button class="fimdeJogobutton" onclick="goToPage('inicio.html')">Voltar ao menu</button>
+            </div>
+
+        </main>
+    </div>
+    <script>
+        function goToPage(url) {
+            window.location.href = url;
+        }
+    </script>
 </body>
 </html>
