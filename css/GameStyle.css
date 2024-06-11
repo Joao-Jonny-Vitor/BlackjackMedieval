@@ -121,6 +121,7 @@ div#somaPlayer, div#somaComputador{
     transition: width 0.5s ease;
     color: white;
     font-size: 20px;
+    position: relative;
 }
 
 #bar_user_pt {
@@ -133,6 +134,7 @@ div#somaPlayer, div#somaComputador{
     transition: width 0.5s ease;
     color: white;
     font-size: 20px;
+    position: relative;
 }
 
 h1,h2{
@@ -145,6 +147,8 @@ h2{
 
 h1#valueEnemy, h1#valueUser{
     margin: 10px 20px 0px 0px;
+    position: absolute;
+    color: white;
 }
 
 .cards {
