@@ -281,3 +281,13 @@ button#dice-image-d6:hover, button#dice-image-d12:hover, button#dice-image-d20:h
     flex-direction: column;
 }
 
+#user_name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40%;
+    width: 50%;
+    font-size: 70px;
+    color: white;
+    font-family:"Jacquard 24", system-ui;
+}

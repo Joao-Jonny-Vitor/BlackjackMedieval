@@ -8,6 +8,7 @@ let player_life = 100;
 let enemy_life = 100;
 let dice;
 let gameEnd;
+let nomeJogador
 
 //Ativa quando a pagina é carregada
 document.addEventListener('DOMContentLoaded', (event) => {
@@ -17,11 +18,23 @@ document.addEventListener('DOMContentLoaded', (event) => {
 //função que inicia o jogo
 function initGame() {
     openModal('dados')
+    let nomeJogador = localStorage.getItem('nomeJogador');
+    if(nomeJogador != null){
+        document.getElementById('user_name').textContent = nomeJogador
+    }
 }
 
 //função para recarregar a pagina para jogar novamente
 function playAgain(){
     location.reload();
+}
+
+function saveName(event){
+    event.preventDefault()
+    console.log(event.target.nome.value)
+    nomeJogador = event.target.nome.value
+    console.log(nomeJogador)
+    localStorage.setItem('nomeJogador', nomeJogador);
 }
 
 //função para abrir modal 
