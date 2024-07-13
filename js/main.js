@@ -29,14 +29,6 @@ function playAgain(){
     location.reload();
 }
 
-function saveName(event){
-    event.preventDefault()
-    console.log(event.target.nome.value)
-    nomeJogador = event.target.nome.value
-    console.log(nomeJogador)
-    localStorage.setItem('nomeJogador', nomeJogador);
-}
-
 //função para abrir modal 
 const openModal = (idModal) => {
     const modal = document.getElementById(idModal)

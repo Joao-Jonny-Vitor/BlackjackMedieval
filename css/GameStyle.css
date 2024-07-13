@@ -163,6 +163,10 @@ h1#valueEnemy, h1#valueUser{
     height: auto;
 }
 
+.cards#player_cards {
+    padding: 2% 0px 0px 0px;
+}
+
 .modal {
 	position: absolute;
 	background: #000000e1;

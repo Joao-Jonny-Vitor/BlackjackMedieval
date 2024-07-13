@@ -36,7 +36,7 @@ div.menu {
     display: flex;
     gap: 12px;
     flex-direction: column;  
-    padding: 0px 0px 60px 10%;
+    padding: 0px 0px 40px 10%;
 
 }
 
@@ -56,7 +56,7 @@ div.menu>button {
     border-radius: 30px;
     background-color: #642d00;
     color: white;
-    font-size: 65px;
+    font-size: 55px;
     font-family:  "Jacquard 24", system-ui;
 }
 
