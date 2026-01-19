@@ -3,7 +3,7 @@ html,body {
     height: 100%;
     margin: 0;
     padding: 0;
-    background-image: url("/img/background/jogo_background.jpg");
+    background-image: url("../img/background/jogo_background.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -20,7 +20,7 @@ div#background{
 header.game{
     height: 25%;
     width: 100%;
-    background-image: url("/img/background/header_background.png");
+    background-image: url("../img/background/header_background.png");
     background-size: cover;
     background-position: top;
 }
@@ -28,7 +28,7 @@ header.game{
 footer.game{
     height: 25%;
     width: 100%;
-    background-image: url("/img/background/footer_background.png");
+    background-image: url("../img/background/footer_background.png");
     background-size: cover;
     background-position:bottom;
 }
@@ -43,7 +43,7 @@ body > div#gameobjects{
 #middle_cards{
     height: 100%;
     width: 40%;
-    background-image: url("/img/background/cards_Stack.png");
+    background-image: url("../img/background/cards_Stack.png");
     background-size: cover;
     background-position: center;
 }
@@ -89,6 +89,7 @@ div.bar{
     overflow: hidden;
     border: 5px solid #000;
     background-color:#642d00;
+    position: relative;
 }
 
 div#placares{
@@ -105,7 +106,7 @@ div#somaPlayer, div#somaComputador{
     flex-direction: column;
     height: 90%;
     width: 70%;
-    background-image: url("/img/background/soma_background.png");
+    background-image: url("../img/background/soma_background.png");
     background-size: cover;
     background-position: center;
     font-size: 20px;
@@ -146,8 +147,16 @@ h2{
 }
 
 h1#valueEnemy, h1#valueUser{
-    margin: 10px 20px 0px 0px;
-    position: absolute;
+    margin: 0; 
+    position: absolute; 
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center; 
+    align-items: center;    
+    z-index: 2; 
     color: white;
 }
 
@@ -194,7 +203,7 @@ h1#valueEnemy, h1#valueUser{
 }
 .modal main{
 	width: 600px;
-    background-image: url('/img/background/modal_background.png');
+    background-image: url('../img/background/modal_background.png');
     background-size: cover;
     background-position: center;
 	border-radius: 15px;
@@ -261,17 +270,17 @@ h1#valueEnemy, h1#valueUser{
 }
 
 button#dice-image-d6 {
-    background-image: url('/img/dices/d6_img.png');
+    background-image: url('../img/dices/d6_img.png');
     background-color: #7d4211;
     cursor: pointer;
 }
 button#dice-image-d12 {
-    background-image: url('/img/dices/d12_img.png');
+    background-image: url('../img/dices/d12_img.png');
     background-color: #7d4211;
     cursor: pointer;
 }
 button#dice-image-d20 {
-    background-image: url('/img/dices/d20_img.png');
+    background-image: url('../img/dices/d20_img.png');
     background-color: #7d4211;
     cursor: pointer;
 }
